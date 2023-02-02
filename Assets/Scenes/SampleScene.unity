@@ -736,7 +736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 0.8
   joystick: {fileID: 1311815593}
-  playerRotateSpeed: 300
+  playerRotateSpeed: 3
   cameraFallowSensivity: 1
 --- !u!4 &491591164
 Transform:

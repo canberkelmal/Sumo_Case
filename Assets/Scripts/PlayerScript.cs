@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour
         controlTarget = GameObject.Find("Control Target");
         rotationController = GameObject.Find("RotationController");
         camOfs = transform.position - cam.transform.position;
+        controlTarget.transform.position = transform.position + transform.forward;
     }
 
     void FixedUpdate()
@@ -46,7 +47,7 @@ public class PlayerScript : MonoBehaviour
         controlTarget.transform.position = transform.position + moveVector;
         rotationController.transform.position = transform.position;
         rotationController.transform.LookAt(controlTarget.transform);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationController.transform.rotation, playerRotateSpeed * Time.deltaTime) ; 
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationController.transform.rotation, playerRotateSpeed* 100 * Time.deltaTime) ; 
         transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward * 5, playerSpeed * Time.deltaTime);
         //playerAgent.destination = controlTarget.transform.position;
 
