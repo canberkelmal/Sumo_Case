@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         cam = GameObject.Find("Main Camera");
-        controlTarget = GameObject.Find("Control Target");
+        controlTarget = GameObject.Find("PlayerDirector");
         rotationController = GameObject.Find("RotationController");
         camOfs = transform.position - cam.transform.position;
         controlTarget.transform.position = transform.position + transform.forward;
