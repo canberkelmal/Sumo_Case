@@ -42,9 +42,11 @@ public class PlayerScript : MonoBehaviour
     [TabGroup("UI")]
     public Text sumoCounterTX;
     [TabGroup("UI")]
+    public GameObject winPanel;
+    [TabGroup("UI")]
     public GameObject losePanel;
     [TabGroup("UI")]
-    public GameObject winPanel;
+    public GameObject pausePanel;
     [TabGroup("UI")]
     public Joystick joystick;
 
@@ -145,6 +147,7 @@ public class PlayerScript : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        losePanel.transform.parent.GetChild(10).gameObject.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -163,11 +166,38 @@ public class PlayerScript : MonoBehaviour
         scoreTX.text = score.ToString();
     }
 
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        winPanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
+        for (int i = 1; i <= 6; i++)
+        {
+            losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
+        losePanel.transform.parent.GetChild(10).gameObject.SetActive(false);
+    }
+    public void Continue()
+    {
+        for (int i = 1; i <= 6; i++)
+        {
+            losePanel.transform.parent.GetChild(i).gameObject.SetActive(true);
+        }
+        losePanel.transform.parent.GetChild(10).gameObject.SetActive(true);
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+    }
+
     public void WinTheRound()
     {
         Time.timeScale = 0;
         winPanel.SetActive(true);
         winPanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
+        for (int i = 1; i <= 6; i++)
+        {
+            losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
+        losePanel.transform.parent.GetChild(10).gameObject.SetActive(false);
         //Win
     }
 
@@ -183,6 +213,7 @@ public class PlayerScript : MonoBehaviour
             {
                 losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
             }
+            losePanel.transform.parent.GetChild(10).gameObject.SetActive(false);
         }
         else if(overCase == "time")
         {
@@ -194,6 +225,7 @@ public class PlayerScript : MonoBehaviour
             {
                 losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
             }
+            losePanel.transform.parent.GetChild(10).gameObject.SetActive(false);
         }
     }
 
