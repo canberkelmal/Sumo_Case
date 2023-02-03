@@ -42,6 +42,8 @@ public class PlayerScript : MonoBehaviour
     [TabGroup("UI")]
     public Text sumoCounterTX;
     [TabGroup("UI")]
+    public GameObject winPanel;
+    [TabGroup("UI")]
     public Joystick joystick;
 
 
@@ -140,7 +142,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name,);
         //Time.timeScale = 1;
     }
 
@@ -161,6 +163,8 @@ public class PlayerScript : MonoBehaviour
 
     public void WinTheRound()
     {
+        winPanel.SetActive(true);
+        winPanel.transform.GetChild(2).GetComponent<Text>().text = scoreTX.text;
         //Win
     }
 
@@ -175,4 +179,6 @@ public class PlayerScript : MonoBehaviour
             //GameOver when time is up
         }
     }
+
+
 }
