@@ -67,6 +67,10 @@ public class PlayerScript : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
         }
+        else
+        {
+            GameOver("time");
+        }
         //Restart the scene when "R" key is pressed.(to use during developing and testing)
         if (Input.GetKeyDown(KeyCode.R))
             Restart();
@@ -152,8 +156,15 @@ public class PlayerScript : MonoBehaviour
         //Win
     }
 
-    public void GameOver()
+    public void GameOver(string overCase)
     {
-        //GameOver
+        if(overCase == "down")
+        {
+            //GameOver when player down
+        }
+        else if(overCase == "time")
+        {
+            //GameOver when time is up
+        }
     }
 }

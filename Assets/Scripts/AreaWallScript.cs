@@ -18,7 +18,7 @@ public class AreaWallScript : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            ps.GameOver();
+            ps.GameOver("down");
         }
     }
 }
