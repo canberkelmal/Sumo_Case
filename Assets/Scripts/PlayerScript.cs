@@ -42,6 +42,8 @@ public class PlayerScript : MonoBehaviour
     [TabGroup("UI")]
     public Text sumoCounterTX;
     [TabGroup("UI")]
+    public GameObject losePanel;
+    [TabGroup("UI")]
     public GameObject winPanel;
     [TabGroup("UI")]
     public Joystick joystick;
@@ -142,8 +144,8 @@ public class PlayerScript : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name,);
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void decreaseSumo(GameObject theNPC)
@@ -163,8 +165,9 @@ public class PlayerScript : MonoBehaviour
 
     public void WinTheRound()
     {
+        Time.timeScale = 0;
         winPanel.SetActive(true);
-        winPanel.transform.GetChild(2).GetComponent<Text>().text = scoreTX.text;
+        winPanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
         //Win
     }
 
@@ -172,11 +175,25 @@ public class PlayerScript : MonoBehaviour
     {
         if(overCase == "down")
         {
-            //GameOver when player down
+            Time.timeScale = 0;
+            losePanel.SetActive(true);
+            losePanel.transform.GetChild(0).GetComponent<Text>().text = "You FALL!";
+            losePanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
+            for(int i = 1; i<=6; i++) 
+            {
+                losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
+            }
         }
         else if(overCase == "time")
         {
-            //GameOver when time is up
+            Time.timeScale = 0;
+            losePanel.SetActive(true);
+            losePanel.transform.GetChild(0).GetComponent<Text>().text = "Time is up!";
+            losePanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
+            for (int i = 1; i <= 6; i++)
+            {
+                losePanel.transform.parent.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 
