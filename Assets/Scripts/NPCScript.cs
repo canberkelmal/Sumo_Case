@@ -37,8 +37,8 @@ public class NPCScript : MonoBehaviour
 
     public void OutOfArea()
     {
-        NPCRb.constraints = RigidbodyConstraints.FreezePositionY;
         transform.SetParent(null);
+        NPCRb.constraints = RigidbodyConstraints.FreezePositionY;
         outOfArea = true;
         NPCRb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ ;
         GetComponent<NPCScript>().enabled = false;

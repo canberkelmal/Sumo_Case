@@ -1401,7 +1401,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1547,12 +1547,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee8426759485d24c90e77865cb16b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 350
-  NPCSpeed: 300
-  playerSpeedLimit: 1
-  NPCSpeedLimit: 12
+  score: 0
+  sumoCounter: 0
+  time: 50
+  playerSpeed: 150
+  playerSpeedLimit: 8
+  NPCSpeed: 140
+  NPCSpeedLimit: 7
+  timeTX: {fileID: 1613275634}
+  scoreTX: {fileID: 469899024}
+  sumoCounterTX: {fileID: 1689337898}
   joystick: {fileID: 1311815593}
-  playerRotateSpeed: 5
+  playerRotateSpeed: 6.5
   cameraFallowSensivity: 1
   bounceConstant: 4
 --- !u!4 &491591164
@@ -2119,7 +2125,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3027,7 +3033,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3266,12 +3272,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1311815592}
-  - {fileID: 1689337897}
   - {fileID: 1613275633}
   - {fileID: 469899023}
-  - {fileID: 1501416609}
+  - {fileID: 1689337897}
   - {fileID: 1146624174}
   - {fileID: 738855838}
+  - {fileID: 1501416609}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3725,7 +3731,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3915,7 +3921,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4144,7 +4150,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1241391501}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
