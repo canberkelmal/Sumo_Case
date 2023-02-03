@@ -27,6 +27,20 @@ public class FrontTriggerScript : MonoBehaviour
         {
             other.transform.parent.GetComponent<Rigidbody>().AddForce((other.transform.parent.position - transform.position) * ps.bounceConstant / 1.2f, ForceMode.Impulse);
         }
-        
+
+
+        if (other.gameObject.CompareTag("Player") && gameObject.transform.parent.CompareTag("NPC"))
+        {
+            other.gameObject.GetComponent<PlayerScript>().throwedBy = transform.parent.gameObject;
+        }
+        else if (other.gameObject.CompareTag("NPC") && gameObject.transform.parent.CompareTag("NPC"))
+        {
+            other.gameObject.GetComponent<NPCScript>().throwedBy = transform.parent.gameObject;
+        }
+        else if (other.gameObject.CompareTag("NPC") && gameObject.transform.parent.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerScript>().throwedBy = transform.parent.gameObject;
+        }
+
     }
 }

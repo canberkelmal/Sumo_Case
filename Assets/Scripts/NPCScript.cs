@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class NPCScript : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class NPCScript : MonoBehaviour
     public bool fallowed = false;
     public bool outOfArea = false;
     bool tempOutOfArea = false;
+    public GameObject throwedBy;
+    public int NPCScore = 100;
     void Start()
     {
         ps = GameObject.Find("Player").GetComponent<PlayerScript>();
@@ -37,10 +40,19 @@ public class NPCScript : MonoBehaviour
 
     public void OutOfArea()
     {
+        if (throwedBy.CompareTag("Player"))
+        {
+            ps.IncreaseScore(this.NPCScore);
+        }
+        else if (throwedBy.CompareTag("NPC"))
+        {
+            IncreaseTheKiller();
+        }
         transform.SetParent(null);
         outOfArea = true;
-        NPCRb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ ;
-        GetComponent<NPCScript>().enabled = false;
+        NPCRb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        //Destroy(gameObject, 0.2f);
+        //GetComponent<NPCScript>().enabled = false;
     }
 
     void NPCController()
@@ -71,7 +83,20 @@ public class NPCScript : MonoBehaviour
         {
             Debug.Log("NPC hit to " + other.gameObject.name);
             other.gameObject.GetComponent<Rigidbody>().AddForce((other.gameObject.transform.position - transform.position) * ps.bounceConstant/1.2f, ForceMode.Impulse);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<PlayerScript>().throwedBy = gameObject;
+            }
+            else if (other.gameObject.CompareTag("NPC"))
+            {
+                other.gameObject.GetComponent<NPCScript>().throwedBy = gameObject;
+            }
         }
 
+    }
+
+    void IncreaseTheKiller()
+    {
+        throwedBy.GetComponent<NPCScript>().NPCScore += this.NPCScore;
     }
 }

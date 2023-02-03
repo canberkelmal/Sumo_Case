@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
     float timeRemaining;
     [HideInInspector]
     public int score, sumoCounter;
+    [HideInInspector]
+    public GameObject throwedBy;
 
     [TabGroup("GamePlay")]
     [ReadOnly]
@@ -127,8 +129,8 @@ public class PlayerScript : MonoBehaviour
         {
             Debug.Log("Player hit to " + other.gameObject.name);
             other.gameObject.GetComponent<Rigidbody>().AddForce(( other.gameObject.transform.position - transform.position ) * bounceConstant / 1.2f, ForceMode.Impulse);
+            other.gameObject.GetComponent<NPCScript>().throwedBy = gameObject;
         }
-
     }
 
     void CamController()
@@ -149,6 +151,12 @@ public class PlayerScript : MonoBehaviour
         sumoCounterTX.text = sumoCounter.ToString();
         if (isPlayerAlive && sumoCounter <= 1)
             WinTheRound();
+    }
+
+    public void IncreaseScore(int tempScore)
+    {
+        score += tempScore;
+        scoreTX.text = score.ToString();
     }
 
     public void WinTheRound()
