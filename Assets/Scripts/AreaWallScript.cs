@@ -16,5 +16,9 @@ public class AreaWallScript : MonoBehaviour
         {
             ps.decreaseSumo(other.gameObject);
         }
+        else if (other.CompareTag("Player"))
+        {
+            ps.GameOver();
+        }
     }
 }

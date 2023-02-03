@@ -15,11 +15,15 @@ public class PlayerScript : MonoBehaviour
     GameObject cam, controlTarget, rotationController;
     NavMeshAgent playerAgent;
     Rigidbody playerRb;
+    float timeRemaining;
     [HideInInspector]
     public int score, sumoCounter;
 
     [TabGroup("GamePlay")]
-    public int time;
+    [ReadOnly]
+    public bool isPlayerAlive = true;
+    [TabGroup("GamePlay")]
+    public int roundTime;
     [TabGroup("GamePlay")]
     public float playerSpeed;
     [TabGroup("GamePlay")]
@@ -54,10 +58,15 @@ public class PlayerScript : MonoBehaviour
         playerRb = transform.GetComponent<Rigidbody>();
         camOfs = transform.position - cam.transform.position;
         controlTarget.transform.position = transform.position + transform.forward;
+        timeRemaining = roundTime;
     }
 
     void Update()
     {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
         //Restart the scene when "R" key is pressed.(to use during developing and testing)
         if (Input.GetKeyDown(KeyCode.R))
             Restart();
@@ -67,6 +76,8 @@ public class PlayerScript : MonoBehaviour
     {
         InputsController();
         CamController();
+
+        timeTX.text = ((int)timeRemaining).ToString();
     }
 
     void InputsController()
@@ -132,5 +143,17 @@ public class PlayerScript : MonoBehaviour
         sumoCounter = theNPC.gameObject.transform.parent.childCount;
         theNPC.GetComponent<NPCScript>().OutOfArea();
         sumoCounterTX.text = sumoCounter.ToString();
+        if (isPlayerAlive && sumoCounter <= 1)
+            WinTheRound();
+    }
+
+    public void WinTheRound()
+    {
+        //Win
+    }
+
+    public void GameOver()
+    {
+        //GameOver
     }
 }

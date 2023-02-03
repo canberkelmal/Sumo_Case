@@ -1549,7 +1549,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   sumoCounter: 0
-  time: 50
+  isPlayerAlive: 1
+  roundTime: 30
   playerSpeed: 150
   playerSpeedLimit: 8
   NPCSpeed: 140
