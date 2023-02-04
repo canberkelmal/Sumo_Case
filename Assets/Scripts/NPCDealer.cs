@@ -22,7 +22,7 @@ public class NPCDealer : MonoBehaviour
             }
             else
             {
-                transform.GetChild(i).GetComponent<NPCScript>().targetNPC = tempTarget;
+                transform.GetChild(i).GetComponent<NPCScript>().targetNPC = tempTarget; 
             }
         }
     }

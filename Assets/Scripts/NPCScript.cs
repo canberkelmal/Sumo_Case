@@ -9,13 +9,18 @@ using UnityEngine.SocialPlatforms.Impl;
 public class NPCScript : MonoBehaviour
 {
     PlayerScript ps;
-    public GameObject NPCs, targetNPC;
     Rigidbody NPCRb;
-    public bool fallowed = false;
-    public bool outOfArea = false;
     bool tempOutOfArea = false;
+
+    [HideInInspector]
+    public GameObject NPCs, targetNPC;
+    [HideInInspector]
+    public bool fallowed = false, outOfArea = false;
+    [HideInInspector]
     public GameObject throwedBy;
+    [HideInInspector]
     public int NPCScore = 100;
+
     void Start()
     {
         ps = GameObject.Find("Player").GetComponent<PlayerScript>();
@@ -29,15 +34,9 @@ public class NPCScript : MonoBehaviour
         {
             NPCController();
         }
-        /*
-        else
-        {
-            NPCRb.constraints = RigidbodyConstraints.FreezePositionY;
-
-            GetComponent<NPCScript>().enabled= false;
-        }*/
     }
 
+    //Set the throwed NPC as out of area and transfer the score
     public void OutOfArea()
     {
         if (throwedBy.CompareTag("Player"))
@@ -51,10 +50,12 @@ public class NPCScript : MonoBehaviour
         transform.SetParent(null);
         outOfArea = true;
         NPCRb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        //Destroy(gameObject, 0.2f);
-        //GetComponent<NPCScript>().enabled = false;
+
+        //Destroy the NPC after 0.2 second
+        Destroy(gameObject, 0.2f);
     }
 
+    //Turns and runs to a available NPC
     void NPCController()
     {
         tempOutOfArea = targetNPC.gameObject != ps.gameObject ? targetNPC.GetComponent<NPCScript>().outOfArea : false; 
@@ -63,7 +64,6 @@ public class NPCScript : MonoBehaviour
             transform.LookAt(targetNPC.transform.position);
             if (NPCRb.velocity.sqrMagnitude < ps.NPCSpeedLimit)
             {
-
                 NPCRb.AddForce(transform.forward * ps.NPCSpeed * Time.deltaTime, ForceMode.Force);
             }
         }
@@ -95,6 +95,7 @@ public class NPCScript : MonoBehaviour
 
     }
 
+    //Adds point of the throwed out NPC
     void IncreaseTheKiller()
     {
         throwedBy.GetComponent<NPCScript>().NPCScore += this.NPCScore;
