@@ -10,12 +10,7 @@ public class FrontTriggerScript : MonoBehaviour
         ps = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Hits the object more than normal collission if the character hit with face
     void OnTriggerEnter(Collider other)
     {
         if(( other.CompareTag("Player") || other.CompareTag("NPC") ) && gameObject.name == "FrontTrigger" && other.gameObject.name != "FrontTrigger")

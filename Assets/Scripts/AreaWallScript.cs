@@ -9,6 +9,8 @@ public class AreaWallScript : MonoBehaviour
     {
         ps = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
+
+    //Detect the throwed objects
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name + " is out of the area!-!");

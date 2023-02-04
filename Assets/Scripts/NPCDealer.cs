@@ -6,6 +6,8 @@ public class NPCDealer : MonoBehaviour
 {
     bool isTargetNPCFallowed = false;
     GameObject tempTarget;
+
+    //Sets the targets of NPCs's at start
     void Start()
     {
         for(int i = 0; i < transform.childCount; i++)
