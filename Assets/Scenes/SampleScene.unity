@@ -1182,7 +1182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290193984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.5, z: -7.82}
+  m_LocalPosition: {x: -4.9401, y: 0.5, z: -8.050161}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1267,7 +1267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.3754447, y: -0, z: -0, w: 0.92684484}
-  m_LocalPosition: {x: 0, y: 14.00028, z: -17.00034}
+  m_LocalPosition: {x: -5.0001, y: 14.00028, z: -17.230501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1485,7 +1485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &353557624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1990,8 +1990,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 42
-    m_FontStyle: 0
+    m_FontSize: 46
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 70
@@ -2001,7 +2001,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: START
 --- !u!222 &444179701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2437,7 +2437,7 @@ MonoBehaviour:
   sumoCounter: 0
   throwedBy: {fileID: 0}
   isPlayerAlive: 1
-  roundTime: 80
+  roundTime: 40
   playerSpeed: 150
   playerSpeedLimit: 8
   NPCSpeed: 140
@@ -2460,7 +2460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491591158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.5, z: -8.82}
+  m_LocalPosition: {x: -4.9401, y: 0.5, z: -9.05016}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2690,7 +2690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &605482924
 Transform:
   m_ObjectHideFlags: 0
@@ -3294,8 +3294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 309.2622, y: 76.9062}
+  m_AnchoredPosition: {x: 0, y: -403.99014}
+  m_SizeDelta: {x: 309.2622, y: 99.4271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765400650
 MonoBehaviour:
@@ -4969,7 +4969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494228131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.5, z: -8.82}
+  m_LocalPosition: {x: -4.9401, y: 0.5, z: -9.05016}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
