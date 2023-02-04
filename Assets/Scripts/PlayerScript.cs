@@ -61,7 +61,6 @@ public class PlayerScript : MonoBehaviour
     [TabGroup("UI")]
     public Joystick joystick;
 
-
     [TabGroup("GameData")]
     public float playerRotateSpeed;
     [TabGroup("GameData")]
@@ -71,6 +70,8 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
+
         cam = GameObject.Find("Main Camera");
 
         //rotationController always looks on controlTarget object
@@ -86,7 +87,7 @@ public class PlayerScript : MonoBehaviour
 
         //This object's position altways set to player position
         controlTarget.transform.position = transform.position + transform.forward;
-        timeRemaining = roundTime;
+        timeRemaining = roundTime;        
     }
 
     void Update()
@@ -209,6 +210,7 @@ public class PlayerScript : MonoBehaviour
         }
         Time.timeScale = 1;
         losePanel.transform.parent.GetChild(10).gameObject.SetActive(true);
+        losePanel.transform.parent.GetChild(11).gameObject.SetActive(false);
         pausePanel.SetActive(false);
     }
 
